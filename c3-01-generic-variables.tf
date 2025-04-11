@@ -66,6 +66,20 @@ variable "eks_cluster_certificate_authority_data" {
   default = ""
 }
 
+# Flag to control whether the StorageClass should be created
+variable "create_ebs_storage_class" {
+  description = "Flag to control if the EBS StorageClass should be created."
+  type        = bool
+  default     = false
+}
+
+# Reclaim policy for the storage class (Retain or Delete)
+variable "ebs_reclaim_policy" {
+  description = "Reclaim policy for the StorageClass (Retain or Delete)."
+  type        = string
+  default     = "Delete"  # Can be set to "Retain" or "Delete"
+}
+
 
 
 

@@ -1,8 +1,7 @@
 ## terraform-aws-eks-ebs-csi
 
-### **We need to announce that the terraform-aws-eks-ebs-csi module was moved to:**   
+### **We need to announce that the terraform-aws-eks-ebs-csi module was moved to:**
 
-  
 **Terraform module**: [https://registry.terraform.io/modules/aws-terraform-module/eks-ebs-csi/aws/latest](https://registry.terraform.io/modules/aws-terraform-module/eks-ebs-csi/aws/latest)  
 **And Github Repo**: [https://github.com/aws-terraform-module/terraform-aws-eks-ebs-csi](https://github.com/aws-terraform-module/terraform-aws-eks-ebs-csi)
 
@@ -20,7 +19,7 @@ data "terraform_remote_state" "eks" {
 }
 
 module "eks-ebs-csi" {
-  source  = "mrnim94/eks-ebs-csi/aws"
+  source  = "aws-terraform-module/eks-ebs-csi/aws"
   version = "2.0.1"
 
   aws_region = "us-east-1"
@@ -47,7 +46,7 @@ data "terraform_remote_state" "eks" {
 }
 
 module "eks-ebs-csi" {
-  source  = "mrnim94/eks-ebs-csi/aws"
+  source  = "aws-terraform-module/eks-ebs-csi/aws"
   version = "2.0.1"
 
   aws_region = var.aws_region
@@ -70,7 +69,7 @@ data "aws_eks_cluster" "dev-mdcl-nimtechnology-engines" {
 
 
 module "eks-ebs-csi" {
-  source  = "mrnim94/eks-ebs-csi/aws"
+  source  = "aws-terraform-module/eks-ebs-csi/aws"
   version = "2.0.1"
 
   aws_region = var.aws_region
@@ -92,6 +91,15 @@ Changes to Outputs:
   + cluster_endpoint                   = "https://086FB70912E24810NIM548C.yl4.us-west-2.eks.amazonaws.com"
   + cluster_id                         = "devops-nimtechnology"
   + oidc_provider_arn                  = "arn:aws:iam::223200000194:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/086FB70912E248103C0INIM6A548C"
+```
+
+**Create EBS Storageclass on EKS**
+
+The `aws-terraform-module/eks-ebs-csi/aws` module also help you create a `ebs-gp3-sc` storageclass on EKS.  
+You need to declare:
+
+```hcl
+create_ebs_storage_class = true
 ```
 
 I have a post to explain much knowledge about EBS and EKS.
