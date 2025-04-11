@@ -1,4 +1,4 @@
-resource "kubernetes_storage_class" "fsx_lustre" {
+resource "kubernetes_storage_class" "ebs_storageclass" {
   count = var.create_ebs_storage_class ? 1 : 0  # Conditionally create the resource
 
   metadata {
